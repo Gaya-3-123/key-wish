@@ -1,0 +1,415 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Vikram 🎂</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 20%, #18285c 0%, #080d25 45%, #02030d 100%);
+    font-family: "Trebuchet MS", sans-serif;
+    color: white;
+}
+
+/* Stars */
+.star {
+    position: absolute;
+    color: #fff;
+    font-size: 18px;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: .2; transform: scale(.7); }
+    to { opacity: 1; transform: scale(1.2); }
+}
+
+/* Moon */
+.moon {
+    position: absolute;
+    top: 35px;
+    right: 55px;
+    font-size: 65px;
+    filter: drop-shadow(0 0 15px #fff4a8);
+}
+
+/* Main */
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Countdown */
+#countdown {
+    font-size: 100px;
+    font-weight: bold;
+    color: #ffd84d;
+    text-shadow:
+        0 0 10px #ffd84d,
+        0 0 30px #ff9d00;
+    animation: countdownPop .8s ease;
+}
+
+@keyframes countdownPop {
+    0% {
+        transform: scale(2);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(.9);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Gift box */
+#gift {
+    display: none;
+    position: relative;
+    width: 210px;
+    height: 170px;
+    margin-top: 20px;
+}
+
+/* Box body */
+.box {
+    position: absolute;
+    bottom: 0;
+    width: 210px;
+    height: 120px;
+    background: linear-gradient(135deg, #6739d9, #301b82);
+    border: 4px solid #a98cff;
+    border-radius: 8px;
+    box-shadow: 0 0 30px #754cff;
+}
+
+/* Ribbon */
+.ribbon {
+    position: absolute;
+    left: 88px;
+    width: 35px;
+    height: 120px;
+    background: #ffd447;
+    z-index: 2;
+}
+
+/* Lid */
+.lid {
+    position: absolute;
+    top: 25px;
+    left: -10px;
+    width: 230px;
+    height: 38px;
+    background: linear-gradient(135deg, #8455ff, #4c2ab5);
+    border: 4px solid #bda9ff;
+    border-radius: 8px;
+    z-index: 4;
+}
+
+/* Bow */
+.bow {
+    position: absolute;
+    top: -25px;
+    left: 73px;
+    font-size: 55px;
+    z-index: 5;
+}
+
+/* Monkey */
+#monkey {
+    display: none;
+    position: absolute;
+    bottom: 105px;
+    font-size: 105px;
+    z-index: 10;
+    animation: monkeyJump 1.3s ease-out forwards;
+    filter: drop-shadow(0 0 12px #ffd85a);
+}
+
+@keyframes monkeyJump {
+    0% {
+        transform: translateY(100px) scale(.3) rotate(-15deg);
+        opacity: 0;
+    }
+    45% {
+        transform: translateY(-100px) scale(1.2) rotate(10deg);
+        opacity: 1;
+    }
+    70% {
+        transform: translateY(-40px) scale(1) rotate(-5deg);
+    }
+    100% {
+        transform: translateY(0) scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+/* Burst particles */
+.burst {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    animation: burst 1.2s ease-out forwards;
+    z-index: 20;
+}
+
+@keyframes burst {
+    0% {
+        transform: translate(0,0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x),var(--y)) scale(.1);
+        opacity: 0;
+    }
+}
+
+/* Wish */
+#wish {
+    display: none;
+    margin-top: 45px;
+    animation: wishAppear 1.5s ease forwards;
+}
+
+#wish h1 {
+    font-size: 42px;
+    color: #ffd84d;
+    text-shadow: 0 0 15px #ffb300;
+}
+
+#wish p {
+    margin-top: 15px;
+    font-size: 22px;
+    color: #ffffff;
+}
+
+.name {
+    margin-top: 12px;
+    font-size: 48px;
+    font-weight: bold;
+    color: #ff82d4;
+    text-shadow: 0 0 20px #ff36bb;
+}
+
+@keyframes wishAppear {
+    from {
+        opacity: 0;
+        transform: scale(.5) translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Mobile */
+@media(max-width:600px) {
+
+    #countdown {
+        font-size: 75px;
+    }
+
+    #wish h1 {
+        font-size: 27px;
+    }
+
+    #wish p {
+        font-size: 17px;
+    }
+
+    .name {
+        font-size: 38px;
+    }
+
+    .moon {
+        right: 20px;
+        font-size: 45px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Stars -->
+<div class="star" style="top:8%;left:12%;">✦</div>
+<div class="star" style="top:18%;left:30%;">★</div>
+<div class="star" style="top:12%;left:70%;">✦</div>
+<div class="star" style="top:35%;left:8%;">★</div>
+<div class="star" style="top:42%;left:88%;">✦</div>
+<div class="star" style="top:70%;left:15%;">★</div>
+<div class="star" style="top:75%;left:80%;">✦</div>
+<div class="star" style="top:85%;left:45%;">★</div>
+
+<!-- Moon -->
+<div class="moon">🌙</div>
+
+<div class="container">
+
+    <!-- Countdown -->
+    <div id="countdown">3</div>
+
+    <!-- Gift -->
+    <div id="gift">
+
+        <div id="monkey">🐒</div>
+
+        <div class="bow">🎀</div>
+
+        <div class="lid"></div>
+
+        <div class="box">
+            <div class="ribbon"></div>
+        </div>
+
+    </div>
+
+    <!-- Wish -->
+    <div id="wish">
+        <h1>🎉 Wish You Many More 🎉</h1>
+        <p>Happy Returns of the Day</p>
+        <div class="name">VIKRAM 🎂</div>
+    </div>
+
+</div>
+
+<script>
+
+let count = 3;
+
+const countdown = document.getElementById("countdown");
+const gift = document.getElementById("gift");
+const monkey = document.getElementById("monkey");
+const wish = document.getElementById("wish");
+
+/* Countdown 3 → 2 → 1 */
+let timer = setInterval(() => {
+
+    count--;
+
+    if (count > 0) {
+
+        countdown.innerText = count;
+
+        countdown.style.animation = "none";
+        void countdown.offsetWidth;
+        countdown.style.animation = "countdownPop .8s ease";
+
+    } else {
+
+        clearInterval(timer);
+
+        countdown.style.display = "none";
+
+        openGift();
+
+    }
+
+}, 1000);
+
+
+/* Gift open */
+function openGift() {
+
+    gift.style.display = "block";
+
+    setTimeout(() => {
+
+        /* Lid flies away */
+        document.querySelector(".lid").style.transform =
+            "translateY(-120px) rotate(-15deg)";
+
+        document.querySelector(".lid").style.transition =
+            "1s ease";
+
+        document.querySelector(".bow").style.transform =
+            "translateY(-120px) rotate(20deg)";
+
+        document.querySelector(".bow").style.transition =
+            "1s ease";
+
+        /* Monkey comes out */
+        monkey.style.display = "block";
+
+        /* Burst */
+        createBurst();
+
+    }, 300);
+
+    /* Wish appears */
+    setTimeout(() => {
+
+        wish.style.display = "block";
+
+    }, 1700);
+}
+
+
+/* Colorful POP burst */
+function createBurst() {
+
+    const colors = [
+        "#ff4d9d",
+        "#ffd43b",
+        "#52e5ff",
+        "#8cff66",
+        "#b36bff",
+        "#ff713b"
+    ];
+
+    for(let i = 0; i < 45; i++) {
+
+        const particle = document.createElement("div");
+
+        particle.classList.add("burst");
+
+        particle.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        particle.style.left = "50%";
+        particle.style.top = "55%";
+
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 100 + Math.random() * 220;
+
+        particle.style.setProperty(
+            "--x",
+            Math.cos(angle) * distance + "px"
+        );
+
+        particle.style.setProperty(
+            "--y",
+            Math.sin(angle) * distance + "px"
+        );
+
+        document.body.appendChild(particle);
+
+        setTimeout(() => {
+            particle.remove();
+        }, 1300);
+    }
+}
+
+</script>
+
+</body>
+</html>
+```
